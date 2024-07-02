@@ -1,0 +1,59 @@
+html{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+body {
+    width: 380px;
+}
+
+.map{
+    display: inline-table;
+}
+
+input[type='text'] {
+    border: 1px solid #6f6f6f;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    text-align: center;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+
+.score-exit{
+    align-self: center;
+    justify-self: center;
+}
+
+.floating-button {
+    text-decoration: none;
+    display: inline-block;
+    width: 140px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    margin: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
+}
+.floating-button:hover {
+    background: #b224ef;
+    box-shadow: #7579ff;
+    color: white;
+    transform: translateY(-7px);
+}
+
+.gamebar{
+    display: grid;
+    grid-template-columns: 395px 250px;
+}

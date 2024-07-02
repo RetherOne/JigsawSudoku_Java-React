@@ -1,0 +1,53 @@
+POST http://localhost:8080/api/score
+Content-Type: application/json
+
+{
+"game": "JigsawSudoku",
+"player": "http",
+"points": 123,
+"playedOn": "2024-05-06T16:54:00"
+}
+###
+GET http://localhost:8080/api/score/JigsawSudoku
+
+###
+POST http://localhost:8080/api/comment
+Content-Type: application/json
+
+{
+  "game": "JigsawSudoku",
+  "player": "http",
+  "comment": "iujsdfnajnanovanerovsdjvn",
+  "commentedon": "2024-05-06T16:54:00"
+}
+###
+GET http://localhost:8080/api/comment/JigsawSudoku
+
+
+###
+POST http://localhost:8080/api/rating
+Content-Type: application/json
+
+{
+  "game": "JigsawSudoku",
+  "player": "http",
+  "rating": 5,
+  "ratingon": "2024-05-06T16:54:00"
+}
+###
+GET http://localhost:8080/api/rating/JigsawSudoku/average_rating
+###
+GET http://localhost:8080/api/rating/JigsawSudoku/http
+
+###
+POST http://localhost:8080/api/account
+Content-Type: application/json
+
+{
+    "player": "http",
+    "password": "httppass"
+}
+###
+GET http://localhost:8080/api/account/test/existAccount
+###
+GET http://localhost:8080/api/account/qwe/qwe/accountCheck

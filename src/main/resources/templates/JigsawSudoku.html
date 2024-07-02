@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>JigsawSudoku</title>
+    <link rel="stylesheet" href="/style.css" />
+
+
+</head>
+<body>
+<div class = "gamebar" th:utext="${@jigsawSudokuController.getMap()}"></div>
+<script>
+    document.getElementById('exitButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        window.parent.postMessage('uexit', '*');
+    });
+    function checkIfSolved() {
+        var isSolved = [[${@jigsawSudokuController.isSolved()}]];
+        if (isSolved) {
+            window.parent.postMessage('uwin', '*');
+        }
+    }
+
+    var inputElements = document.querySelectorAll('.input');
+    inputElements.forEach(function(inputElement) {
+        inputElement.addEventListener('keydown', function(event) {
+            var inputValue = this.value;
+            if (event.key === 'Enter') {
+                if (inputValue.trim() !== '' && inputValue.trim().match("[1-9]")) {
+                    window.location.href = "http://localhost:8080/api/JigsawSudoku/play/?row=" + this.name[0] + "&column=" + this.name[1] + "&value=" + parseInt(this.value);
+                    setTimeout(checkIfSolved, 100);
+                }
+            }
+        });
+    });
+
+    checkIfSolved();
+</script>
+
+</body>
+</html>

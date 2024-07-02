@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sing In</title>
+    <link rel="stylesheet" href="/enterstyle.css" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+    <script>
+        $(function() {
+            $( "#singin" ).click(function() {
+                $( "#singin" ).addClass( "onclic2", 250, validate);
+            });
+
+            function validate() {
+                setTimeout(function() {
+                    $( "#singin" ).removeClass( "onclic2" );
+                    $( "#singin" ).addClass( "validate2", 450, callback );
+                }, 2250 );
+            }
+            function callback() {
+                setTimeout(function() {
+                    $( "#singin" ).removeClass( "validate2" );
+                }, 1250 );
+            }
+        });
+    </script>
+    <div class="center wrap-login100">
+        <span class="login100-form-title">Log in</span>
+        <form class="login100-form validate-form" style="display: flex; flex-direction: column; align-items: center;" action="#" th:action="@{/api/JigsawSudoku/singin}" method="post" th:object="${user}">
+            <input class="input100" placeholder="Username" type="text" th:field="*{player}" /><br/>
+            <input class="input100" placeholder="Password" type="text" th:field="*{password}" /><br/>
+            <button id="singin" type="submit"></button>
+        </form>
+    </div>
+</body>
+</html>

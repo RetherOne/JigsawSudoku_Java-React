@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Register</title>
+    <link rel="stylesheet" href="/enterstyle.css" />
+</head>
+<body>
+<div class="center">
+    <div class="container">
+        <button id="singin"></button>
+        <button id="register"></button>
+    </div>
+</div>
+<script>
+    var sing = document.getElementById('singin');
+    var reg = document.getElementById('register');
+
+    sing.addEventListener('click', function() {
+        window.location.href = "http://localhost:8080/api/JigsawSudoku/singin";
+    });
+
+    reg.addEventListener('click', function() {
+        window.location.href = "http://localhost:8080/api/JigsawSudoku/register";
+    });
+
+    $(function() {
+        $( "#singin" ).click(function() {
+            $( "#singin" ).addClass( "onclic2", 250, validate);
+        });
+
+        function validate() {
+            setTimeout(function() {
+                $( "#singin" ).removeClass( "onclic2" );
+                $( "#singin" ).addClass( "validate2", 450, callback );
+            }, 2250 );
+        }
+        function callback() {
+            setTimeout(function() {
+                $( "#singin" ).removeClass( "validate2" );
+            }, 1250 );
+        }
+    });
+
+    $(function() {
+        $( "#register" ).click(function() {
+            $( "#register" ).addClass( "onclic", 250, validate);
+        });
+
+        function validate() {
+            setTimeout(function() {
+                $( "#register" ).removeClass( "onclic" );
+                $( "#register" ).addClass( "validate", 450, callback );
+            }, 2250 );
+        }
+        function callback() {
+            setTimeout(function() {
+                $( "#register" ).removeClass( "validate" );
+            }, 1250 );
+        }
+    });
+</script>
+</body>
+</html>
